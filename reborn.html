@@ -39,17 +39,28 @@
   </div>
   <script>
     const container = document.querySelector('#container');
-    const storyTelling = document.querySelectorAll('.story');
+    const containerChildren = container.children;
+    const divHeight = container.offsetHeight/12;
 
-    const debt = document.querySelector('#debt');
-    const mother = document.querySelector('#mother');
+    let count = 0;
+    window.addEventListener('click', function(){
+      if(count <containerChildren.length-1 ){
+        containerChildren[count].style.color = "blue";
+        window.scrollTo ({
+          top:divHeight*(count+1),
+          behavior: "smooth"
+        });
+        count++;
+        console.log(containerChildren[count]);
+      } else {
+        window.scrollTo ({
+          top:divHeight,
+          behavior: "smooth"
+        });
+      }
+    });
 
-    console.dir(container);
-    container.style.position = "relaive";
-    console.log(container);
-   
-    
-    
+
   </script>
 </body>
-</html>
+</html> 
